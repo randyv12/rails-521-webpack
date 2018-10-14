@@ -2,6 +2,7 @@
 class HomeController < ApplicationController
 
   def index
-    render react_component component: 'home/page', props: {foo: 1}
+
+    render react_component component: 'home/index', props: {}
   end
 end
