@@ -3,9 +3,10 @@ class ApplicationController < ActionController::Base
   def react_component(component:, props:)
     {
       component: component,
-      props: {mount_path: Webpacker.manifest.lookup(self.controller_name + '/' + self.action_name + '.js')}.merge(props),
+      props: props.merge(mountScript: Webpacker.manifest.lookup(self.controller_name + '/' + self.action_name + '.js')),
       tag: 'html',
-      layout: false
+      layout: false,
+      prerender: :static
     }
 
   end

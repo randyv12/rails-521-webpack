@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import ReactPage from "./page";
+import Content from "./content";
 
-ReactDOM.render(<ReactPage />, document.body.firstElementChild);
+const props = {...window['__INITIAL_STATE__']||{}};
+ReactDOM.render(<Content {...props} />, document.body.firstElementChild);
