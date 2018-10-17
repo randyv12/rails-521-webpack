@@ -14,18 +14,25 @@ https://github.com/rails/webpacker
 
 
 * Ruby version
+
 2.3.1
 
 * System dependencies
+
 Recommended Node version 10.8.0
 
 * Configuration
+
 Clone the repo
+
 ```bundle```
+
 ```yarn install```
 
 * How to run
+
 ```rails s```
+
 ```./bin/webpack-dev-server```
 
 * Paths
@@ -37,9 +44,7 @@ app/javascript/packs - Location of entry points
 Render the react component from a controller's action
 ```ruby
 class HomeController < ApplicationController
-
   def index
-
     render react_component component: 'home/index', props: {}
   end
 end
@@ -91,7 +96,6 @@ class PageContent extends React.Component<any, any> {
           >Page Stuff</Grid>
         </div>
       </div>
-
     );
   }
 }
@@ -101,8 +105,4 @@ mount()(withStyles(styles)(PageContent));
 
 // Use the pagify with styles decorator to wrap the entire page content with a full page react component
 export default pagify()((withStyles(styles)(PageContent)));
-
 ```
-
-
-
