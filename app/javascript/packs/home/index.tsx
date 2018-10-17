@@ -51,7 +51,7 @@ class PageContent extends React.Component<any, any> {
           <AppBar position="relative">
             <Toolbar>
               <Typography variant="h6" color="inherit" noWrap>
-                CrunchyDates
+                Navbar
               </Typography>
             </Toolbar>
           </AppBar>
@@ -76,15 +76,15 @@ class PageContent extends React.Component<any, any> {
                 <Card className={classes.card}>
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                          Start Matching
+                          Hello World
                         </Typography>
                         <Typography variant="subtitle1">
-                          Choose this option if you'd like to randomly match someone
+                          Subtitle!
                         </Typography>
                       </CardContent>
                       <CardActions>
                         <Button size="small" color="primary">
-                          Okay, let's go!
+                          Okay
                         </Button>
                       </CardActions>
                     </Card>
@@ -97,110 +97,19 @@ class PageContent extends React.Component<any, any> {
                     <Card className={classes.card}>
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                          Explore
+                          This is a card
                         </Typography>
                         <Typography variant="subtitle1">
-                          Swipe right or left on profiles
+                          I think
                         </Typography>
                       </CardContent>
                       <CardActions>
                         <Button size="small" color="primary">
-                          Sure, I'd like that
+                          Hello!
                         </Button>
                       </CardActions>
                     </Card>
                   </Grid>
-            </Grid>
-            <Grid container
-                  alignItems='center'
-                  direction='row'
-                  justify='center'
-                  className={classes.gridrow}
-            >
-              <Grid
-                item
-                xs={12} sm={12} md={6}
-                className={classes.griditem}
-              >
-                  <Card className={classes.card}>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Your Profile
-                      </Typography>
-                      <Typography variant="subtitle1">
-                        Tell us about yourself
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        Okay
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              <Grid item
-                    xs={12} sm={12} md={6}
-                    className={classes.griditem}
-              >
-                <Card className={classes.card}>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Who Viewed Me
-                    </Typography>
-                    <Typography variant="subtitle1">
-                      You currently have 400 visitors since day 1
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">Cool!</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            </Grid>
-            <Grid container
-                  alignItems='center'
-                  direction='row'
-                  justify='center'
-                  className={classes.gridrow}
-            >
-              <Grid item
-                    xs={12} sm={12} md={6}
-                    className={classes.griditem}
-              >
-                  <Card className={classes.card}>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Account Settings
-                      </Typography>
-                      <Typography variant="subtitle1">
-                        Set your preferences
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        Okay
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              <Grid item
-                    xs={12} sm={12} md={6}
-                    className={classes.griditem}
-              >
-                <Card className={classes.card}>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Sign out
-                    </Typography>
-                    <Typography variant="subtitle1">
-                      Have a nice day!
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">Sign out</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
             </Grid>
           </Grid>
         </div>
