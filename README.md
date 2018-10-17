@@ -31,10 +31,10 @@ This is a boiler plate project for rendering full react pages in Rails.
 * Create your own gemset (rvm gemset create 2.3.1@rails-521-webpack)
 * Install yarn https://yarnpkg.com/lang/en/docs/install/#mac-stable
 * Bundle install gems
+* Install npm packages
 
 ```bundle```
 
-* Install npm packages
 ```yarn install```
 
 ## How to run
