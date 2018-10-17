@@ -103,4 +103,7 @@ mount()(withStyles(styles)(PageContent));
 // Use the pagify with styles decorator to wrap the entire page content with a full page react component
 export default pagify()((withStyles(styles)(PageContent)));
 ```
+
+## How does it work?
+
 ![How it works](/HowItWorks.png)
