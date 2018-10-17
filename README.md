@@ -103,4 +103,4 @@ mount()(withStyles(styles)(PageContent));
 // Use the pagify with styles decorator to wrap the entire page content with a full page react component
 export default pagify()((withStyles(styles)(PageContent)));
 ```
-![How it works](https://raw.githubusercontent.com/randyv12/rails-521-webpack/master/HowItWorks.png)
+![How it works](/HowItWorks.png)
