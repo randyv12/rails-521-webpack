@@ -4,44 +4,41 @@ This is a boiler plate project for rendering full react pages in Rails.
 It uses the most recent version of Webpacker, React-Rails and React and Typescript as of October 17, 2018.
 This uses Material UI CSS and uses React to statically render an entire layout for a page and provides a single entry-point for mounting React components on the page.  This also uses TheRubyRacer gem as a Javascript engine for server-side rendering.
 
-* Resources
+## Resources
 
-https://stackoverflow.com/questions/43739067/is-window-initial-state-still-the-preferred-way-to-pass-initial-state-to-the
+* https://stackoverflow.com/questions/43739067/is-window-initial-state-still-the-preferred-way-to-pass-initial-state-to-the
+* https://github.com/reactjs/react-rails#controller-actions
+* https://github.com/rails/webpacker
 
-https://github.com/reactjs/react-rails#controller-actions
+## Ruby version
 
-https://github.com/rails/webpacker
+* 2.3.1
 
+## System dependencies
 
-* Ruby version
+* Recommended Node version 10.8.0
 
-2.3.1
+## Configuration
 
-* System dependencies
-
-Recommended Node version 10.8.0
-
-* Configuration
-
-Clone the repo
+* Clone the repo
 
 ```bundle```
 
 ```yarn install```
 
-* How to run
+## How to run
 
 ```rails s```
 
 ```./bin/webpack-dev-server```
 
-* Paths
-app/javascript/components - Location of all react reusable components, including the React Page
-app/javascript/packs - Location of entry points
+## Paths
+* app/javascript/components - Location of all react reusable components, including the React Page
+* app/javascript/packs - Location of entry points
 
-* How to code!
+## How to code!
 
-Render the react component from a controller's action
+* Render the react component from a controller's action
 ```ruby
 class HomeController < ApplicationController
   def index
@@ -50,7 +47,7 @@ class HomeController < ApplicationController
 end
 ```
 
-The helper function react_component wraps the react rails controller renderer to server-side render statically
+* The helper function react_component wraps the react rails controller renderer to server-side render statically
 ```ruby
   def react_component(component:, props:)
     {
@@ -64,7 +61,7 @@ The helper function react_component wraps the react rails controller renderer to
   end
 ```
 
-Create an entry point which exports a single React component
+* Create an entry point which exports a single React component
 ```app/javascript/packs/home/index.tsx```
 
 ```javascript
