@@ -55,11 +55,12 @@ This is a boiler plate project for rendering full react pages in Rails with Type
 
 # Before jumping in, relevant information regarding file paths
 
-* app/javascript/components - Put your components here
-* app/javascript/packs - Import your components here
+* app/javascript/components - (Components) example: app/javascript/components/Page.tsx
+* app/javascript/packs - (Entry points) example: app/javascript/packs/home/index.tsx
 
 ## How to code!
 
+## Controller
 * Render the react component from a controller's action
 ```ruby
 class HomeController < ApplicationController
@@ -83,9 +84,7 @@ end
   end
 ```
 
-* Create an entry point which exports a single React component
-* which includes the page mount script
-* and also includes the pagify script
+* Create an entry point which exports a single React component which includes the page mount script and also includes the pagify script
 
 ```app/javascript/packs/home/index.tsx```
 
@@ -103,8 +102,10 @@ class PageContent extends React.Component<any, any> {
 mount()(PageContent);
 export default pagify()(PageContent);
 ```
-* This allows your component to be mountable on client-side and server-side renderable from the controller
+* This prepares your component to be exported for SSR (server-side-render) and allows it to be mounted on the client-side
 * The pagify wrapper will wrap the PageContent with html head and body tags
+
+```app/javascript/utils/pagify.tsx```
 ```javascript
 export const pagify = () => (WrappedComponent) => {
   return class extends React.Component {
@@ -114,6 +115,7 @@ export const pagify = () => (WrappedComponent) => {
   }
 };
 ```
+```app/javascript/components/Page.tsx```
 ```javascript
 class Page extends React.Component<IReactPage, any> {
   render() {
