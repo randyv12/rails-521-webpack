@@ -68,40 +68,51 @@ end
 class PageContent extends React.Component<any, any> {
 
   render() {
-    const { classes, banner_image } = this.props;
-    const bgStyle = "url(" + require('../../images/sunset.jpg') + ")";
     return (
       <div>
-        <div style={{backgroundImage: bgStyle,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'noRepeat',
-          backgroundAttachment: 'fixed'
-        }}>
-          <AppBar position="relative">
-            <Toolbar>
-              <Typography variant="h6" color="inherit" noWrap>
-                Navbar
-              </Typography>
-            </Toolbar>
-          </AppBar>
-
-          <Grid container
-                alignItems='center'
-                direction='row'
-                justify='center'
-                className={classes.grid}
-          >Page Stuff</Grid>
-        </div>
+        Page Stuff
       </div>
     );
   }
 }
 
-// Use the mount decorator with styles to mount the page on window load
-mount()(withStyles(styles)(PageContent));
+// Use the mount decorator to mount the page on window load
+mount()(PageContent);
 
-// Use the pagify with styles decorator to wrap the entire page content with a full page react component
-export default pagify()((withStyles(styles)(PageContent)));
+// Use the pagify to wrap the entire page content with a full page react component
+export default pagify()(PageContent);
+```
+The pagify wrapper will wrap the PageContent with html head and body tags
+```javascript
+export const pagify = () => (WrappedComponent) => {
+  return class extends React.Component {
+
+    render() {
+      return (<Page {...this.props}>
+                <WrappedComponent {...this.props} />
+              </Page>);
+    }
+  }
+};
+class Page extends React.Component<IReactPage, any> {
+  render() {
+    const { children, mountScript } = this.props;
+    const initialData = serialize(_objectWithoutProperties(this.props, ['mountScript', 'children']) || {});
+    return (
+      <html>
+        <head>
+          <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
+        </head>
+        <body>
+          {children}
+          {mountScript && <script src={mountScript}/>}
+          <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__ = ${initialData}`}}/>
+        </body>
+      </html>
+    );
+  }
+}
 ```
 
 ## How does it work?
