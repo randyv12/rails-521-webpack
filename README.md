@@ -60,8 +60,7 @@ This is a boiler plate project for rendering full react pages in Rails with Type
 
 ## How to code!
 
-## Controller
-* Render the react component from a controller's action
+### Render the react component from a controller's action
 ```ruby
 class HomeController < ApplicationController
   def index
@@ -70,7 +69,7 @@ class HomeController < ApplicationController
 end
 ```
 
-* The helper function react_component wraps the react rails controller renderer to server-side render statically
+### The helper function react_component wraps the react rails controller renderer to server-side render statically
 ```ruby
   def react_component(component:, props:)
     {
@@ -84,7 +83,7 @@ end
   end
 ```
 
-* Create an entry point which exports a single React component which includes the page mount script and also includes the pagify script
+### Create an entry point which exports a single React component which includes the page mount script and also includes the pagify script
 
 ```app/javascript/packs/home/index.tsx```
 
@@ -102,8 +101,8 @@ class PageContent extends React.Component<any, any> {
 mount()(PageContent);
 export default pagify()(PageContent);
 ```
-* This prepares your component to be exported for SSR (server-side-render) and allows it to be mounted on the client-side
-* The pagify wrapper will wrap the PageContent with html head and body tags
+### This prepares your component to be exported for SSR (server-side-render) and allows it to be mounted on the client-side
+### The pagify wrapper will wrap the PageContent with html head and body tags
 
 ```app/javascript/utils/pagify.tsx```
 ```javascript
