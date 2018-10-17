@@ -5,11 +5,11 @@ It uses the most recent version of Webpacker, React-Rails and React and Typescri
 This uses Material UI CSS and uses React to statically render an entire layout for a page and provides a single entry-point for mounting React components on the page.  This also uses TheRubyRacer gem as a Javascript engine for server-side rendering.
 
 * Resources
+
 https://stackoverflow.com/questions/43739067/is-window-initial-state-still-the-preferred-way-to-pass-initial-state-to-the
 https://github.com/reactjs/react-rails#controller-actions
 https://github.com/rails/webpacker
 
-Things you may want to cover:
 
 * Ruby version
 2.3.1
