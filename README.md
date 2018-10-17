@@ -1,14 +1,20 @@
 # README
 
 This is a boiler plate project for rendering full react pages in Rails.
-It uses the most recent version of Webpacker, React-Rails and React and Typescript as of October 17, 2018.
-This uses Material UI CSS and uses React to statically render an entire layout for a page and provides a single entry-point for mounting React components on the page.  This also uses TheRubyRacer gem as a Javascript engine for server-side rendering.
+
+## This uses
+* Webpacker
+* React-Rails
+* Typescript
+* Material UI
+* The ruby racer JS engine
+* Latest packages as of Oct 17, 2018
 
 ## Resources
 
-* https://stackoverflow.com/questions/43739067/is-window-initial-state-still-the-preferred-way-to-pass-initial-state-to-the
 * https://github.com/reactjs/react-rails#controller-actions
 * https://github.com/rails/webpacker
+* https://stackoverflow.com/questions/43739067/is-window-initial-state-still-the-preferred-way-to-pass-initial-state-to-the
 
 ## Ruby version
 
@@ -21,9 +27,14 @@ This uses Material UI CSS and uses React to statically render an entire layout f
 ## Configuration
 
 * Clone the repo
+* Install RVM https://rvm.io/rvm/install
+* Create your own gemset (rvm gemset create 2.3.1@rails-521-webpack)
+* Install yarn https://yarnpkg.com/lang/en/docs/install/#mac-stable
+* Bundle install gems
 
 ```bundle```
 
+* Install npm packages
 ```yarn install```
 
 ## How to run
@@ -62,6 +73,9 @@ end
 ```
 
 * Create an entry point which exports a single React component
+* which includes the page mount script
+* and also includes the pagify script
+
 ```app/javascript/packs/home/index.tsx```
 
 ```javascript
@@ -75,25 +89,21 @@ class PageContent extends React.Component<any, any> {
     );
   }
 }
-
-// Use the mount decorator to mount the page on window load
 mount()(PageContent);
-
-// Use the pagify to wrap the entire page content with a full page react component
 export default pagify()(PageContent);
 ```
-The pagify wrapper will wrap the PageContent with html head and body tags
+* This allows your component to be mountable on client-side and server-side renderable from the controller
+* The pagify wrapper will wrap the PageContent with html head and body tags
 ```javascript
 export const pagify = () => (WrappedComponent) => {
   return class extends React.Component {
-
     render() {
-      return (<Page {...this.props}>
-                <WrappedComponent {...this.props} />
-              </Page>);
+      return (<Page {...this.props}><WrappedComponent {...this.props} /></Page>);
     }
   }
 };
+```
+```javascript
 class Page extends React.Component<IReactPage, any> {
   render() {
     const { children, mountScript } = this.props;
