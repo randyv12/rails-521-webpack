@@ -1,6 +1,6 @@
 # README
 
-This is a boiler plate project for rendering full react pages in Rails.
+This is a boiler plate project for rendering full react pages in Rails with Typescript.
 
 ## This uses
 * Webpacker
@@ -43,9 +43,20 @@ This is a boiler plate project for rendering full react pages in Rails.
 
 ```./bin/webpack-dev-server```
 
-## Paths
-* app/javascript/components - Location of all react reusable components, including the React Page
-* app/javascript/packs - Location of entry points
+
+
+## How does it work?
+
+* The controller renders the react component, which itself includes a react mount script
+* The mount script loads the entry point on pageload after server-side rendering statically
+* See pic
+
+![How it works](/HowItWorks.png)
+
+# Before jumping in, relevant information regarding file paths
+
+* app/javascript/components - Put your components here
+* app/javascript/packs - Import your components here
 
 ## How to code!
 
@@ -124,7 +135,3 @@ class Page extends React.Component<IReactPage, any> {
   }
 }
 ```
-
-## How does it work?
-
-![How it works](/HowItWorks.png)
